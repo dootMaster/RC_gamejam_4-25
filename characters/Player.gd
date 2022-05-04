@@ -27,7 +27,6 @@ func _physics_process(delta):
 		$AnimatedSprite.play("idle")
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
-	print(transform)
 	
 	
 		

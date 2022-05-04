@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://MovableTile.gd" type="Script" id=1]
+[ext_resource path="res://assets/Terrain/Terrain (16x16).png" type="Texture" id=2]
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 3, 0, 3 )
+
+[sub_resource type="ConvexPolygonShape2D" id=7]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 3, 0, 3 )
+
+[sub_resource type="ConvexPolygonShape2D" id=8]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 3, 0, 3 )
+
+[sub_resource type="TileSet" id=9]
+0/name = "Terrain (16x16).png 0"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 96, 0, 80, 48 )
+0/tile_mode = 1
+0/autotile/bitmask_mode = 0
+0/autotile/bitmask_flags = [ Vector2( 0, 0 ), 432, Vector2( 0, 1 ), 406, Vector2( 0, 2 ), 54, Vector2( 1, 0 ), 504, Vector2( 1, 1 ), 325, Vector2( 1, 2 ), 61, Vector2( 2, 0 ), 216, Vector2( 2, 1 ), 211, Vector2( 2, 2 ), 27, Vector2( 3, 0 ), 255, Vector2( 3, 1 ), 507, Vector2( 4, 0 ), 447, Vector2( 4, 1 ), 510 ]
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 16, 16 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 6 )
+0/shape_one_way = true
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 2, 0 ),
+"one_way": true,
+"one_way_margin": 1.0,
+"shape": SubResource( 6 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 0 ),
+"one_way": true,
+"one_way_margin": 1.0,
+"shape": SubResource( 7 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": true,
+"one_way_margin": 1.0,
+"shape": SubResource( 8 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 32, 16 )
+
+[node name="MovableTile" type="StaticBody2D"]
+collision_layer = 256
+collision_mask = 256
+script = ExtResource( 1 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 9 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 32
+show_collision = true
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 1, 2, 0, 1, 3, 0, 2, 65536, 0, 131072, 65537, 0, 131073, 65538, 0, 131073, 65539, 0, 131074, 1376334, 0, 0, 1376335, 0, 1, 1376336, 0, 1, 1376337, 0, 1, 1376338, 0, 1, 1376339, 0, 1, 1376340, 0, 1, 1376341, 0, 1, 1376342, 0, 2, 1441870, 0, 65536, 1441871, 0, 65537, 1441872, 0, 3, 1441873, 0, 131073, 1441874, 0, 131073, 1441875, 0, 131073, 1441876, 0, 131073, 1441877, 0, 4, 1441878, 0, 65538, 1507406, 0, 65536, 1507407, 0, 65537, 1507408, 0, 65538, 1507413, 0, 65536, 1507414, 0, 65538, 1572942, 0, 65536, 1572943, 0, 65537, 1572944, 0, 65538, 1572949, 0, 65536, 1572950, 0, 65538, 1638478, 0, 65536, 1638479, 0, 65537, 1638480, 0, 65538, 1638485, 0, 65536, 1638486, 0, 65538, 1704014, 0, 65536, 1704015, 0, 65537, 1704016, 0, 65538, 1704021, 0, 65536, 1704022, 0, 65538, 1769550, 0, 65536, 1769551, 0, 65537, 1769552, 0, 65539, 1769553, 0, 1, 1769554, 0, 1, 1769555, 0, 1, 1769556, 0, 1, 1769557, 0, 65540, 1769558, 0, 65538, 1835086, 0, 131072, 1835087, 0, 131073, 1835088, 0, 131073, 1835089, 0, 131073, 1835090, 0, 131073, 1835091, 0, 131073, 1835092, 0, 131073, 1835093, 0, 131073, 1835094, 0, 131074 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 32, 16 )
+shape = SubResource( 10 )
+
+[connection signal="mouse_entered" from="." to="." method="_on_MovableTile_mouse_entered"]
